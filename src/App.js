@@ -18,6 +18,10 @@ class App extends React.Component {
       .then((users) => this.setState({ monsters: users }))
       .catch((error) => console.log("Error happened"));
   }
+  
+    onSearchChange = (e) => {
+    this.setState({ searchField: e.target.value });
+  };
 
   render() {
     const { monsters, searchField } = this.state;
@@ -29,7 +33,7 @@ class App extends React.Component {
         <h1>Monsters Rolodex</h1>
         <SearchBox
           placeholder={"search monsters"}
-          handleChange={(e) => this.setState({ searchField: e.target.value })}
+          handleChange={this.onSearchChange}
         />
         <CardList monsters={filteredMonsters} />
       </div>
