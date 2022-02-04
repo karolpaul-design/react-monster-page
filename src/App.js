@@ -19,6 +19,10 @@ class App extends React.Component {
       .then((users) => this.setState({ monsters: users }))
       .catch((error) => console.log("Error happened"));
   }
+  
+    onSearchChange = (e) => {
+    this.setState({ searchField: e.target.value });
+  };
 
   onSearchChange = (e) => {
     this.setState({ searchField: e.target.value });
